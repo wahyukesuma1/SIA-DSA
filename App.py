@@ -73,11 +73,11 @@ def add():
 
     choice = input("Masukkan Data Tersebut Ke Database? (y/n) \n> ")
     if choice.lower() == 'y':
-        # Insert data ke linkedlist -> ControllerTabungan
+        # Insert data ke linkedlist -> ControllerMahasiswa
         mahasiswa.insertList(convertData(data))
         print("Data Berhasil Ditambahkan..")
 
-        # Insert data ke database -> QueueTabungan
+        # Insert data ke database -> QueueMahasiswa
         mahasiswa.InsertData(data)
     else:
         mahasiswa.insertList(convertData(data))
@@ -91,9 +91,9 @@ def update():
         
     choice = input("Simpan Perubahan Pada Database? (y/n) \n> ")
     if choice.lower() == 'y':
-        # Update data ke linkedlist -> ControllerTabungan
+        # Update data ke linkedlist -> ControllerMahasiswa
         mahasiswa.updateList(convertData(data))
-        # Update data ke database -> QueueTabungan
+        # Update data ke database -> QueueMahasisw
         mahasiswa.UpdateData(convertData(data))                        
     else:
         mahasiswa.updateList(convertData(data))
@@ -103,9 +103,9 @@ def dels():
         data.append(input("Masukkan NIM Mahasiswa Yang Mau Dihapus \n> "))
         choice = input("Delete Include Database? (y/n): ")
         if choice.lower() == 'y':
-            # Delete data ke linkedlist -> ControllerTabungan
+            # Delete data ke linkedlist -> ControllerMahasiswa
             mahasiswa.deleteList(convertData(data))
-            # Delete data ke database -> QueueTabungan
+            # Delete data ke database -> QueueMahasiswa
             mahasiswa.DeleteData(convertData(data))
         else:
             mahasiswa.deleteList(convertData(data))
@@ -129,7 +129,7 @@ def main():
             print(f"> Welcome Back, {username} < \n")
             print("Login Success... Please Wait")
             time.sleep(2.3)
-            # Inisialisasi Object MahasiswaController -> ControllerTabungan
+            # Inisialisasi Object MahasiswaController -> ControllerMahasiswa
             global mahasiswa
             mahasiswa = MahasiswaController()
             while True:
@@ -145,18 +145,18 @@ def main():
                 elif choice == '3': dels()
                 elif choice == '4':
                     data.append(input("Cari Mahasiswa Berdasarkan NIM \n> "))
-                    # Search data ke linkedlist -> ControllerTabungan
+                    # Search data ke linkedlist -> ControllerMahasiswa
                     mahasiswa.searchList(convertData(data))
                 elif choice == '5':
                     mahasiswa.refreshList()
-                    # Print data ke linkedlist -> ControllerTabungan
+                    # Print data ke linkedlist -> ControllerMahasiswa
                     mahasiswa.printList()
                 elif choice == '6':
-                    # Sort data ke linkedlist -> ControllerTabungan
+                    # Sort data ke linkedlist -> ControllerMahasiswa
                     mahasiswa.sortList()                                                         
                 elif choice == '8':
                     # mahasiswa.refreshList()
-                    # Print insert history -> QueueTabungan
+                    # Print insert history -> QueueMahasiswa
                     mahasiswa.PrintQueue()                    
                 elif choice == '9':
                     break
